@@ -15,7 +15,7 @@ CREATE TABLE Recibos(                                          --Criar tabela
 	IdRecibo INT NOT NULL IDENTITY(1,1) PRIMARY KEY,           --Criar Primary Keys
 	IdUsuario INT NOT NULL,                                    --Coluna
 	IdCadastroTransacao INT NOT NULL,                          --Coluna
-	IdLocalSaida TINYINT NOT NULL,                             --Coluna
+	IdLocalSaida INT NOT NULL,                                 --Coluna
 	DataCorreta date NULL,                                     --Coluna
 	DataTransferencia date NOT NULL,                           --Coluna
 	Valor FLOAT NOT NULL,                                      --Coluna
@@ -27,7 +27,7 @@ CREATE TABLE Recibos(                                          --Criar tabela
 )
 
 CREATE TABLE Locais(                                           --Criar tabela
-	IdLocal TINYINT NOT NULL PRIMARY KEY,                      --Criar Primary Keys Sem Identity
+	IdLocal INT NOT NULL PRIMARY KEY,                          --Criar Primary Keys Sem Identity
 	"Local" varchar(50) NOT NULL,                              --Coluna
 	Tipo VARCHAR(1) NOT NULL,                                  --Coluna
 	Limite float NULL,                                         --Coluna
@@ -52,7 +52,7 @@ CREATE TABLE Planos(                                           --Criar tabela
 CREATE TABLE Credenciais(                                      --Criar tabela
 	IdCredencial INT NOT NULL IDENTITY(1,1) PRIMARY KEY,       --Criar Primary Keys
 	Usuario VARCHAR(50) NOT NULL,                              --Coluna
-	Senha VARCHAR(20) NOT NULL,                                --Coluna
+	Senha VARCHAR(35) NOT NULL,                                --Coluna
 	UsuarioAtivo BINARY NOT NULL,                              --Coluna
 	DataCriacao date NOT NULL,                                 --Coluna
 	UsuarioCriacao varchar(50) NOT NULL,                       --Coluna
@@ -114,7 +114,7 @@ CREATE TABLE Assinaturas(                                      --Criar tabela
 
 CREATE TABLE Entradas(                                         --Criar tabela
 	IdEntrada INT NOT NULL IDENTITY(1,1) PRIMARY KEY,          --Criar Primary Keys
-	IdLocalEntrada TINYINT NOT NULL,                           --Coluna
+	IdLocalEntrada INT NOT NULL,                               --Coluna
 	IdRecibo INT NOT NULL,                                     --Coluna
 	DataCriacao date NOT NULL,                                 --Coluna
 	UsuarioCriacao varchar(50) NOT NULL,                       --Coluna
