@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [FinancasCadastro]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Database [FinancasCadastro]    Script Date: 7/18/2022 8:31:01 PM ******/
 CREATE DATABASE [FinancasCadastro]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,7 +80,7 @@ ALTER DATABASE [FinancasCadastro] SET QUERY_STORE = OFF
 GO
 USE [FinancasCadastro]
 GO
-/****** Object:  Table [dbo].[Assinaturas]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[Assinaturas]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +103,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CadastrosTransacoes]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[CadastrosTransacoes]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +124,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CadastrosUsuario]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[CadastrosUsuario]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -148,7 +148,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Classificacoes]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[Classificacoes]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -168,7 +168,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Credenciais]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[Credenciais]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -176,7 +176,7 @@ GO
 CREATE TABLE [dbo].[Credenciais](
 	[IdCredencial] [int] IDENTITY(1,1) NOT NULL,
 	[Usuario] [varchar](50) NOT NULL,
-	[Senha] [varchar](20) NOT NULL,
+	[Senha] [varchar](35) NOT NULL,
 	[UsuarioAtivo] [binary](1) NOT NULL,
 	[DataCriacao] [date] NOT NULL,
 	[UsuarioCriacao] [varchar](50) NOT NULL,
@@ -188,14 +188,14 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Entradas]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[Entradas]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Entradas](
 	[IdEntrada] [int] IDENTITY(1,1) NOT NULL,
-	[IdLocalEntrada] [tinyint] NOT NULL,
+	[IdLocalEntrada] [int] NOT NULL,
 	[IdRecibo] [int] NOT NULL,
 	[DataCriacao] [date] NOT NULL,
 	[UsuarioCriacao] [varchar](50) NOT NULL,
@@ -207,13 +207,13 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Locais]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[Locais]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Locais](
-	[IdLocal] [tinyint] NOT NULL,
+	[IdLocal] [int] NOT NULL,
 	[Local] [varchar](50) NOT NULL,
 	[Tipo] [varchar](1) NOT NULL,
 	[Limite] [float] NULL,
@@ -228,7 +228,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Planos]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[Planos]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -248,7 +248,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Recibos]    Script Date: 6/25/2022 4:01:46 PM ******/
+/****** Object:  Table [dbo].[Recibos]    Script Date: 7/18/2022 8:31:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -257,7 +257,7 @@ CREATE TABLE [dbo].[Recibos](
 	[IdRecibo] [int] IDENTITY(1,1) NOT NULL,
 	[IdUsuario] [int] NOT NULL,
 	[IdCadastroTransacao] [int] NOT NULL,
-	[IdLocalSaida] [tinyint] NOT NULL,
+	[IdLocalSaida] [int] NOT NULL,
 	[DataCorreta] [date] NULL,
 	[DataTransferencia] [date] NOT NULL,
 	[Valor] [float] NOT NULL,
