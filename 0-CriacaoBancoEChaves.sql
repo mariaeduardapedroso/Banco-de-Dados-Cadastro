@@ -6,7 +6,7 @@ Para que funcione siga as instruções pois precisa ser executado em duas partes
 */
 
 --------------------------EXECUTAR ESSA PARTE PARA CRIAR O BANCO DE DADOS----------------------------------
-CREATE DATABASE FinancasCadastro;
+--CREATE DATABASE FinancasCadastro;
 -----------------------------------------------------------------------------------------------------------
 
 --------------------------EXECUTAR ESSA PARTE PARA CRIAR AS TABELAS E PKs----------------------------------

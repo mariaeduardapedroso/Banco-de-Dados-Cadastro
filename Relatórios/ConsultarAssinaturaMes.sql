@@ -8,17 +8,21 @@ USE FinancasCadastro;
 
 DECLARE @DATA INT;
 DECLARE @OPCAO INT;
+DECLARE @QUANTIDADE INT;
+DECLARE @USUARIODATA INT;
 
 ------------------------------------ALTERANDO DADOS PARA VISUALIZAR CORRETAMENTE-------------------------------------
 SET--colocar mes numérico
     @DATA = MONTH(getdate());
 
-SET--1-Quantidade 2-Usuarios e datas
-    @OPCAO = 1;
+SET
+    @QUANTIDADE = 1;
+SET 
+	@USUARIODATA = 0;
 ---------------------------------------------------------------------------------------------------------------------
 
 ---------------------------------EXECUTAR ESSA PARTE PARA EXECUTAR O RELATÓRIO---------------------------------------
-IF @OPCAO = 1
+IF @QUANTIDADE = 1
 SELECT
     IdPlano,
     count(IdPlano) AS 'Assinaturas que iniciaram nesse mes'
@@ -32,7 +36,7 @@ group by
 order by
     IdPlano ASC;
 
-IF @OPCAO = 2
+IF @USUARIODATA = 1
 SELECT
     IdAssinatura,
     IdUsuario,

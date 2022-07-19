@@ -8,39 +8,57 @@
 
 --------------------------EXECUTAR ESSA PARTE PARA CRIAR STORE PROCEDURE----------------------------------
 
-CREATE PROCEDURE TABELAS @TABELA AS VARCHAR(20) AS BEGIN IF @TABELA = 'ASSINATURAS'
+CREATE OR ALTER PROCEDURE TABELAS @TABELA AS VARCHAR(20) AS BEGIN 
+
+IF @TABELA = 'ASSINATURAS'
 SELECT
     *
 FROM
-    [dbo].[Assinaturas] IF @TABELA = 'CADASTROSTRANSACOES'
+    [dbo].[Assinaturas] 
+
+IF @TABELA = 'CADASTROSTRANSACOES'
 SELECT
     *
 FROM
-    [dbo].[CadastrosTransacoes] IF @TABELA = 'CADASTROSUSUARIO'
+    [dbo].[CadastrosTransacoes] 
+	
+IF @TABELA = 'CADASTROSUSUARIO'
 SELECT
     *
 FROM
-    [dbo].[CadastrosUsuario] IF @TABELA = 'CLASSIFICACOES'
+    [dbo].[CadastrosUsuario] 
+	
+IF @TABELA = 'CLASSIFICACOES'
 SELECT
     *
 FROM
-    [dbo].[Classificacoes] IF @TABELA = 'CREDENCIAIS'
+    [dbo].[Classificacoes] 
+	
+IF @TABELA = 'CREDENCIAIS'
 SELECT
     *
 FROM
-    [dbo].[Credenciais] IF @TABELA = 'ENTRADAS'
+    [dbo].[Credenciais] 
+	
+IF @TABELA = 'ENTRADAS'
 SELECT
     *
 FROM
-    [dbo].[Entradas] IF @TABELA = 'LOCAIS'
+    [dbo].[Entradas] 
+	
+IF @TABELA = 'LOCAIS'
 SELECT
     *
 FROM
-    [dbo].[Locais] IF @TABELA = 'PLANOS'
+    [dbo].[Locais] 
+	
+IF @TABELA = 'PLANOS'
 SELECT
     *
 FROM
-    [dbo].[Planos] IF @TABELA = 'RECIBOS'
+    [dbo].[Planos] 
+	
+IF @TABELA = 'RECIBOS'
 SELECT
     *
 FROM
