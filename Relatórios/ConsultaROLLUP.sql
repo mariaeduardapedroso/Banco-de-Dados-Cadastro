@@ -8,12 +8,34 @@
 USE FinancasCadastro;
 
 ---------------------------------EXECUTAR ESSA PARTE PARA EXECUTAR O RELATÓRIO---------------------------------------
-select
-    idPlano,
-	AssinaturaAtiva,
-    count(IdPlano) as 'Quantidade de usuários Ativos e inativos'
-from
+SELECT
+    idPlano
+	,AssinaturaAtiva,
+    COUNT(IdPlano) AS 'Quantidade de usuários Ativos e inativos e o total do plano'
+FROM
     assinaturas
-group by
-    IdPlano,ROLLUP(AssinaturaAtiva) order by IdPlano, AssinaturaAtiva
+GROUP BY
+    IdPlano,ROLLUP(AssinaturaAtiva) ORDER BY IdPlano, AssinaturaAtiva
+---------------------------------------------------------------------------------------------------------------------
+
+---------------------------------EXECUTAR ESSA PARTE PARA EXECUTAR O RELATÓRIO---------------------------------------
+SELECT
+    idPlano,
+	ISNULL(CAST(AssinaturaAtiva AS VARCHAR),'TOTAL PLANO'),--CONVERTER
+    COUNT(IdPlano) AS 'Quantidade de usuários Ativos e inativos e o total do plano'
+FROM
+    assinaturas
+GROUP BY
+    IdPlano,ROLLUP(AssinaturaAtiva) ORDER BY IdPlano, AssinaturaAtiva
+---------------------------------------------------------------------------------------------------------------------
+
+---------------------------------EXECUTAR ESSA PARTE PARA EXECUTAR O RELATÓRIO---------------------------------------
+SELECT
+    idPlano,
+	ISNULL(CONVERT(VARCHAR,AssinaturaAtiva),'TOTAL PLANO'),--CONVERTER
+    COUNT(IdPlano) AS 'Quantidade de usuários Ativos e inativos e o total do plano'
+FROM
+    assinaturas
+GROUP BY
+    IdPlano,ROLLUP(AssinaturaAtiva) ORDER BY IdPlano, AssinaturaAtiva
 ---------------------------------------------------------------------------------------------------------------------
